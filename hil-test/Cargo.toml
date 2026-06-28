@@ -236,6 +236,10 @@ esp32s3 = [
 
 psram = ["esp-alloc"]
 
+# Fix RSA accelerator memory dimensions on ESP32
+[patch."https://github.com/esp-rs/esp-pacs"]
+esp32 = { git = "https://github.com/LVK-96/esp-pacs", rev = "cc1f342f312889d8ce758c8ebf68472a60efad78" }
+
 # https://doc.rust-lang.org/cargo/reference/profiles.html#test
 # Test and bench profiles inherit from dev and release respectively.
 [profile.dev]

@@ -137,12 +137,12 @@ __has_unstable_feature_enabled = []
 ## - `pub extern "C" fn calloc_internal(number: u32, size: usize) -> *mut u8`
 ## - `pub extern "C" fn realloc(ptr: *mut u8, new_size: usize) -> *mut u8`
 ## - `pub extern "C" fn get_free_internal_heap_size() -> usize;`
-## 
+##
 ## Note that the untyped nature of the allocator functions means that esp-alloc is likely the more memory efficient option.
 esp-alloc = ["dep:esp-alloc"]
 
 ## Outputs logs from the pre-compiled Wi-Fi and BLE driver blobs at info level.
-## 
+##
 ## ⚠️ This feature is considered unstable.
 print-logs-from-driver = [
     "__has_unstable_feature_enabled",
@@ -383,3 +383,7 @@ default-target = "riscv32imac-unknown-none-elf"
 # `esp-rom-sys` https://github.com/esp-rs/esp-hal/issues/4675#issuecomment-4267119170
 [package.metadata.cargo-machete]
 ignored = ["esp-rom-sys"]
+
+# Fix RSA accelerator memory dimensions on ESP32
+[patch."https://github.com/esp-rs/esp-pacs"]
+esp32 = { git = "https://github.com/LVK-96/esp-pacs", rev = "cc1f342f312889d8ce758c8ebf68472a60efad78" }
