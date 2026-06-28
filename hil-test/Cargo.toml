@@ -96,6 +96,7 @@ esp-alloc          = { path = "../esp-alloc", optional = true }
 esp-bootloader-esp-idf = { path = "../esp-bootloader-esp-idf" }
 esp-hal            = { path = "../esp-hal" }
 esp-metadata-generated = { path = "../esp-metadata-generated" }
+esp-println        = { path = "../esp-println", default-features = false, features = ["uart"], optional = true }
 esp-rtos           = { path = "../esp-rtos", optional = true }
 esp-storage        = { path = "../esp-storage", optional = true }
 esp-sync           = { path = "../esp-sync" }
@@ -148,6 +149,7 @@ esp32 = [
     "esp-bootloader-esp-idf/esp32",
     "esp-metadata-generated/esp32",
     "esp-rtos?/esp32",
+    "esp-println?/esp32",
 ]
 esp32c2 = [
     "esp-hal/esp32c2",
